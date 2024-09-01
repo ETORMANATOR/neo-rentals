@@ -1,0 +1,18 @@
+
+<IfModule mod_rewrite.c>
+
+RewriteEngine on
+RewriteCond $1 !^(index\.php|resources|images|assets|libs|css|js|img|robots\.txt|favicon\.ico)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+</IfModule>
+# Hide a specific file
+
+<Files .env>
+Order allow,deny
+Deny from all
+</Files>
+
+
+
